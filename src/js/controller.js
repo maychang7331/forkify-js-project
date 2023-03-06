@@ -120,7 +120,6 @@ const controlAddRecipe = async function (newRecipe) {
       addRecipeView.toggleWindow();
     }, MODAL_CLOSE_SEC * 1000);
   } catch (err) {
-    console.log('🐸', err);
     addRecipeView.renderError(err.message);
   }
 };
