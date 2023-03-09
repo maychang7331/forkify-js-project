@@ -1,5 +1,11 @@
 import { async } from 'regenerator-runtime';
-import { API_URL, RESULTS_PER_PAGE, KEY } from './config.js';
+import {
+  API_URL,
+  RESULTS_PER_PAGE,
+  KEY,
+  SUGGESTIONS,
+  SUGGESTIONS_PER_QUERY,
+} from './config.js';
 // import { getJSON, sendJSON } from './helper.js';
 import { AJAX } from './helper.js';
 
@@ -12,6 +18,7 @@ export const state = {
     resultsPerPage: RESULTS_PER_PAGE,
   },
   bookmarks: [],
+  suggestions: [],
 };
 
 const createRecipeObject = function (data) {
@@ -42,6 +49,18 @@ export const loadRecipe = async function (id) {
     console.log(`${err}🌛🌛🌛`);
     throw err;
   }
+};
+
+export const loadSuggestions = function (query) {
+  if (!query) {
+    state.suggestions = [];
+    return;
+  }
+  state.suggestions = SUGGESTIONS.filter(sug =>
+    sug.toLocaleLowerCase().startsWith(query.toLocaleLowerCase())
+  )
+    .sort()
+    .slice(0, SUGGESTIONS_PER_QUERY);
 };
 
 export const loadSearchResults = async function (query) {

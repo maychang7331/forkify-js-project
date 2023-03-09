@@ -21,17 +21,25 @@
       <header class="header">
         <img src="src/img/logo.png" alt="Logo" class="header__logo" />
         <form class="search">
-          <input
-            type="text"
-            class="search__field"
-            placeholder="Search over 1,000,000 recipes..."
-          />
-          <button class="btn search__btn">
-            <svg class="search__icon">
-              <use href="src/img/icons.svg#icon-search"></use>
-            </svg>
-            <span>Search</span>
-          </button>
+          <div class="search__box">
+            <input
+              type="text"
+              class="search__box--field"
+              placeholder="Search over 1,000,000 recipes..."
+            />
+            <button class="btn search__box--btn">
+              <svg class="search__icon">
+                <use href="src/img/icons.svg#icon-search"></use>
+              </svg>
+              <span>Search</span>
+            </button>
+          </div>
+          <div class="search__suggestionBox">
+            <!-- here list are inserted from javascript -->
+            <!-- <li onclick="select(this)">Carrot Juice</li>
+            <li onclick="select(this)">Channel</li>
+            <li onclick="select(this)">Codding Lab</li>-->
+          </div>
         </form>
 
         <nav class="nav">

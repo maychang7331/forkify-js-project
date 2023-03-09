@@ -38,6 +38,11 @@ const controlRecipes = async function () {
   }
 };
 
+const controlSuggestions = function (query) {
+  model.loadSuggestions(query);
+  searchView.renderMarkup(model.state.suggestions);
+};
+
 const controlSearchResults = async function () {
   try {
     resultsView.renderSpinner();
@@ -134,6 +139,7 @@ const init = function () {
   recipeView.addHandlerUpdateServings(controlServings);
   recipeView.addHandlerAddBookmark(controlAddBookmark);
   searchView.addHandlerSearch(controlSearchResults);
+  searchView.addHandlerSuggestions(controlSuggestions);
   paginationView.addHandlerClick(controlPagination);
   addRecipeView.addHandlerUpload(controlAddRecipe);
   newFeature();
