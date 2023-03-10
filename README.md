@@ -2,9 +2,16 @@
 
 <img src="docs/forkify webpage screenshot.png"/>
 
-[Forkify](https://forkify-mayc.netlify.app/) is a useful recipe application that offers a wide range of features. Its **integration with an API** enables users to search for over a million recipes using various [search queries](https://forkify-api.herokuapp.com/phrases.html), making it easy to find the perfect recipe. Additionally, the ability to **bookmark recipes** and **upload custom recipes** offers users a personalized experience.
+[Forkify](https://forkify-mayc.netlify.app/) is a user-friendly recipe application that offers a wide range of features. Its **integration with an API** enables users to search for over a million recipes using various search queries. The considerate design of having search suggestions makes it easy to find the perfect recipe.
 
-The feature of being able to **adjust ingredient amounts** according to the number of servings is very convenient as it saves users the hassle of having to perform manual calculations. Overall, Forkify appears to be a user-friendly and practical application for anyone who loves to cook or wants to try new recipes.
+### Features
+
+- Search for over a million recipes using various search queries
+- **Bookmark recipes** to save for later
+- **Upload custom recipes** to personalize your experience
+- **Adjust ingredient amounts** according to the number of servings
+
+Overall, Forkify appears to be a convenient and practical application for anyone who loves to cook or wants to try new recipes.Simply navigate to the [Forkify website](https://forkify-mayc.netlify.app/) and discover your next favorite recipe!
 
 ## **Requirements**
 
@@ -33,6 +40,7 @@ Where `npm install` reaches into the package.json file, and install the all depe
 
 ### **Start**
 
+The configuarion settings can be found in `config.js`.
 To start a live server on your app, run
 
 ```
