@@ -64,10 +64,12 @@
     }
   }
 
-  &--active &__suggestionBox {
-    width: 30rem;
-    border-radius: 2rem;
+  &--active {
+    border-radius: 1rem;
+    padding-bottom: 0.7rem;
+  }
 
+  &--active &__suggestion {
     li {
       border: none;
       background: none;
@@ -77,13 +79,10 @@
 
       list-style: none;
       padding: 0.7rem 0 0.7rem 3rem;
+      overflow: hidden;
 
-      &:first-child {
-        padding-top: 0;
-      }
-
-      &:last-child {
-        padding-bottom: 1.5rem;
+      &:hover {
+        background-color: rgba($color-grey-light-1, 0.55);
       }
     }
   }

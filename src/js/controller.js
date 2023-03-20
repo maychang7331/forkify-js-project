@@ -43,6 +43,10 @@ const controlSuggestions = function (query) {
   searchView.renderMarkup(model.state.suggestions);
 };
 
+controlClickSuggestion = function (query) {
+  searchView.setQuery(query);
+};
+
 const controlSearchResults = async function () {
   try {
     resultsView.renderSpinner();
@@ -136,6 +140,10 @@ const init = function () {
   recipeView.addHandlerAddBookmark(controlAddBookmark);
   searchView.addHandlerSearch(controlSearchResults);
   searchView.addHandlerSuggestions(controlSuggestions);
+  searchView.addHandlerClickSuggestion(
+    controlClickSuggestion,
+    controlSearchResults
+  );
   paginationView.addHandlerClick(controlPagination);
   addRecipeView.addHandlerUpload(controlAddRecipe);
 };

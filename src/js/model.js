@@ -56,6 +56,7 @@ export const loadSuggestions = function (query) {
     state.suggestions = [];
     return;
   }
+
   state.suggestions = SUGGESTIONS.filter(sug =>
     sug.toLocaleLowerCase().startsWith(query.toLocaleLowerCase())
   )

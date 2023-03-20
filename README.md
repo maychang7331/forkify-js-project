@@ -54,3 +54,7 @@ To build a production distribution, run
 ```
 $ npm build
 ```
+
+## **Acknowledgement**
+
+This project is inspired by [Jonas Schmedtman](https://twitter.com/jonasschmedtman)
