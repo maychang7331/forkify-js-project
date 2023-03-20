@@ -43,7 +43,7 @@ const controlSuggestions = function (query) {
   searchView.renderMarkup(model.state.suggestions);
 };
 
-controlClickSuggestion = function (query) {
+const controlClickSuggestion = function (query) {
   searchView.setQuery(query);
 };
 
