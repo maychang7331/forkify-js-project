@@ -43,17 +43,13 @@ const controlSuggestions = function (query) {
   searchView.renderMarkup(model.state.suggestions);
 };
 
-controlClickSuggestion = function (query) {
-  searchView.setQuery(query);
-};
-
 const controlSearchResults = async function () {
   try {
-    resultsView.renderSpinner();
-
     // 1) Get search query
     const query = searchView.getQuery();
     if (!query) return;
+
+    resultsView.renderSpinner();
 
     // 2) Load search result
     await model.loadSearchResults(query);
@@ -140,10 +136,8 @@ const init = function () {
   recipeView.addHandlerAddBookmark(controlAddBookmark);
   searchView.addHandlerSearch(controlSearchResults);
   searchView.addHandlerSuggestions(controlSuggestions);
-  searchView.addHandlerClickSuggestion(
-    controlClickSuggestion,
-    controlSearchResults
-  );
+  searchView.addHandlerSuggestionMouseClick(controlSearchResults);
+  searchView.addHandlerSuggestionArrowKey();
   paginationView.addHandlerClick(controlPagination);
   addRecipeView.addHandlerUpload(controlAddRecipe);
 };

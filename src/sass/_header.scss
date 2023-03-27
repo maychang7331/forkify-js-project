@@ -69,21 +69,20 @@
     padding-bottom: 0.7rem;
   }
 
-  &--active &__suggestion {
-    li {
-      border: none;
-      background: none;
-      font-family: inherit;
-      color: $color-grey-light-3;
-      font-size: 1.7rem;
+  &--active &__suggestion--item {
+    border: none;
+    background: none;
+    font-family: inherit;
+    color: $color-grey-light-3;
+    font-size: 1.7rem;
 
-      list-style: none;
-      padding: 0.7rem 0 0.7rem 3rem;
-      overflow: hidden;
+    list-style: none;
+    padding: 0.7rem 0 0.7rem 3rem;
+    overflow: hidden;
 
-      &:hover {
-        background-color: rgba($color-grey-light-1, 0.55);
-      }
+    &:hover,
+    &.selected {
+      background-color: rgba($color-grey-light-2, 0.5);
     }
   }
 }
