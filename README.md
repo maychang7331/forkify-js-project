@@ -10,6 +10,7 @@
 - **Bookmark recipes** to save for later
 - **Upload custom recipes** to personalize your experience
 - **Adjust ingredient amounts** according to the number of servings
+- **Navigate search suggestions** either by mouse or arrow key  
 
 Overall, Forkify appears to be a convenient and practical application for anyone who loves to cook or wants to try new recipes.Simply navigate to the [Forkify website](https://forkify-mayc.netlify.app/) and discover your next favorite recipe!
 
