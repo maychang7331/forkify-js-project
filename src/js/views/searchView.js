@@ -2,16 +2,12 @@ class SearchView {
   _parentElement = document.querySelector('.search');
   _searchBoxField = this._parentElement.querySelector('.search__box--field');
   _suggestionList = document.querySelector('.search__suggestion--list');
+  _selectedIndex = -1;
 
   getQuery() {
     const query = this._searchBoxField.value;
     this._clearSuggestions();
     return query;
-  }
-
-  setQuery(query) {
-    this._searchBoxField.value = query;
-    this._clearSuggestions();
   }
 
   _clearSuggestions() {
@@ -32,7 +28,9 @@ class SearchView {
   }
 
   _generateMarkupSuggestions(suggestions) {
-    return suggestions.map(sug => `<li>${sug}</li>`).join('');
+    return suggestions
+      .map(sug => `<li class="search__suggestion--item">${sug}</li>`)
+      .join('');
   }
 
   addHandlerSearch(handler) {
@@ -43,20 +41,48 @@ class SearchView {
   }
 
   addHandlerSuggestions(handler) {
-    this._parentElement.addEventListener('keyup', function (e) {
+    this._parentElement.addEventListener('input', function (e) {
       const query = e.target.value.trim();
-      handler(query); // e.key returns only a key
+      this._selectedIndex = -1;
+      handler(query);
     });
   }
 
-  addHandlerClickSuggestion(handler, handler2) {
+  addHandlerSuggestionArrowKey() {
+    this._parentElement.addEventListener('keydown', function (e) {
+      const items = document.querySelectorAll('.search__suggestion--item');
+      if (!items) return;
+      if (!(e.key === 'ArrowDown' || e.key === 'ArrowUp')) return;
+
+      if (e.key === 'ArrowDown') {
+        this._selectedIndex = (this._selectedIndex + 1) % items.length;
+      } else if (e.key === 'ArrowUp') {
+        this._selectedIndex =
+          (this._selectedIndex - 1 + items.length) % items.length;
+      } else {
+        return;
+      }
+
+      items.forEach((item, index) => {
+        if (index === this._selectedIndex) {
+          item.classList.add('selected');
+          document.querySelector('.search__box--field').value =
+            item.textContent;
+        } else {
+          item.classList.remove('selected');
+        }
+      });
+    });
+  }
+
+  addHandlerSuggestionMouseClick(handler) {
     this._parentElement.addEventListener('click', function (e) {
       const list = e.target.closest('.search__suggestion--list');
       if (!list) return;
 
-      // console.log(this._searchBoxField); // setQuery(){}
-      handler(e.target.textContent);
-      handler2();
+      document.querySelector('.search__box--field').value =
+        e.target.textContent;
+      handler();
     });
   }
 }
