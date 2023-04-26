@@ -1,8 +1,29 @@
 class SearchView {
+  _header = document.querySelector('.header');
   _parentElement = document.querySelector('.search');
+  _mobileSearch = document.querySelector('.nav__btn--search');
   _searchBoxField = this._parentElement.querySelector('.search__box--field');
   _suggestionList = document.querySelector('.search__suggestion--list');
   _selectedIndex = -1;
+
+  constructor() {
+    this._addHandlerShowSearch();
+  }
+
+  toggleMobileSearch() {
+    this._header.classList.toggle('mobile--search');
+  }
+
+  closeMobileSearch() {
+    this._header.classList.remove('mobile--search');
+  }
+
+  _addHandlerShowSearch() {
+    this._mobileSearch.addEventListener(
+      'click',
+      this.toggleMobileSearch.bind(this)
+    );
+  }
 
   getQuery() {
     const query = this._searchBoxField.value;

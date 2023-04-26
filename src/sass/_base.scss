@@ -11,10 +11,13 @@ $color-grey-dark-2: #918581; // Lighter text
 
 $gradient: linear-gradient(to right bottom, $color-grad-1, $color-grad-2);
 
-$bp-large: 78.15em; // 1250px
-$bp-medium: 61.25em; // 980px
-$bp-small: 37.5em; // 600px
-$bp-smallest: 31.25em; // 500px
+// /16px
+$bp-large: 75em; // (1200px)
+$bp-medium-large: 67.5em; // LAPTOPS (1080px)
+$bp-medium: 60em; // TABLETS (960px)
+$bp-medium-small: 52.5em; // (840px)
+$bp-small: 43.5em; // SMALLER TABLETS (696px)
+$bp-smallest: 33.75em; // PHONES (540px)
 
 * {
   margin: 0;
@@ -31,9 +34,30 @@ html {
   box-sizing: border-box;
   font-size: 62.5%;
 
-  @media only screen and (max-width: $bp-medium) {
+  // SMALLER DESKTOPS (1080px)
+  @media screen and (max-width: $bp-medium-large) {
+    font-size: 56.25%;
+  }
+
+  // TABLETS (960px)
+  @media screen and (max-width: $bp-medium) {
     font-size: 50%;
   }
+
+  // (840px)
+  @media screen and (max-width: $bp-medium-small) {
+    font-size: 43.75%;
+  }
+
+  // SMALLER TABLETS (696px)
+  @media screen and (max-width: $bp-medium-small) {
+    font-size: 37.5%;
+  }
+
+  // PHONES (540px)
+  // @media (max-width: $bp-smallest) {
+  //   font-size: 37.5%;
+  // }
 }
 
 body {
@@ -57,15 +81,31 @@ body {
   box-shadow: 0 2rem 6rem 0.5rem rgba($color-grey-dark-1, 0.2);
 
   display: grid;
-  grid-template-rows: 10rem minmax(100rem, auto);
+  grid-template-rows: 10rem minmax(100vh, auto);
   grid-template-columns: 1fr 2fr;
   grid-template-areas:
     'head head'
     'list recipe';
 
-  @media only screen and (max-width: $bp-large) {
+  @media screen and (max-width: $bp-large) {
     max-width: 100%;
     margin: 0;
     border-radius: 0;
+  }
+
+  @media screen and (max-width: $bp-medium-large) {
+    grid-template-rows: 9rem minmax(100vh, auto);
+  }
+
+  // @media (max-width: $bp-medium-small) {
+  // }
+
+  @media screen and (max-width: $bp-small) {
+    grid-template-columns: 1fr;
+    background-color: $color-grey-light-1;
+  }
+
+  @media screen and (max-width: $bp-smallest) {
+    grid-template-rows: 7rem minmax(100vh, auto);
   }
 }

@@ -14,7 +14,7 @@
 
 .search {
   flex-direction: column;
-  z-index: 999;
+  z-index: 9;
   margin-top: 2.4rem;
   align-self: flex-start;
   border-radius: 3rem;
@@ -47,14 +47,6 @@
 
       &::placeholder {
         color: $color-grey-light-3;
-      }
-
-      @media only screen and (max-width: $bp-medium) {
-        width: auto;
-
-        &::placeholder {
-          color: white;
-        }
       }
     }
 
@@ -89,16 +81,22 @@
 
 .nav {
   align-self: stretch;
-  margin-right: 2.5rem;
+  margin-right: 4rem;
 
   &__list {
     list-style: none;
     display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
     height: 100%;
   }
 
   &__item {
     position: relative;
+    &:first-child {
+      display: none;
+    }
   }
 
   &__btn {
@@ -111,10 +109,10 @@
     background: none;
     border: none;
     cursor: pointer;
-    padding: 0 1.5rem;
     transition: all 0.3s;
 
-    display: flex;
+    display: grid;
+    grid-template-columns: auto auto;
     align-items: center;
 
     svg {
@@ -171,5 +169,102 @@
   .nav__btn--bookmarks:hover + & {
     visibility: visible;
     opacity: 1;
+  }
+}
+
+//////////////////////////////////////
+// MEDIA QUERIES
+@media screen and (max-width: $bp-medium-large) {
+  .search {
+    margin-top: 2rem;
+  }
+}
+
+@media screen and (max-width: $bp-medium-small) {
+  .search {
+    margin-top: 1.8rem;
+
+    // &__box {
+    //   &--field {
+    //     width: auto;
+
+    //     &::placeholder {
+    //       color: white;
+    //     }
+    //   }
+    // }
+  }
+}
+
+@media screen and (max-width: $bp-small) {
+  .nav {
+    svg {
+      height: 3rem;
+      width: 3rem;
+    }
+
+    span {
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-width: $bp-smallest) {
+  .header {
+    position: relative;
+  }
+
+  .search {
+    display: none;
+    position: absolute;
+    margin: 0;
+    top: 7rem;
+    border-radius: 0;
+    width: 100%;
+
+    &:focus-within {
+      transform: none;
+      box-shadow: 0 1rem 3rem -1rem rgba($color-grey-dark-1, 0.1);
+    }
+
+    &__box {
+      padding: 2rem 0 1.2rem 0;
+      border-radius: 0;
+      background: none;
+
+      &--field {
+        width: 63%;
+        margin-left: 9.6rem;
+        border-bottom: 1px solid $color-grey-light-3;
+
+        &::placeholder {
+          color: $color-grey-light-3;
+        }
+      }
+
+      &--btn {
+        display: none;
+      }
+    }
+
+    &--active &__suggestion--item {
+      padding-left: 9.6rem;
+    }
+  }
+
+  .mobile--search .search {
+    display: block;
+  }
+
+  .nav {
+    &__item {
+      &:first-child {
+        display: block;
+      }
+    }
+
+    svg {
+      margin: 0;
+    }
   }
 }

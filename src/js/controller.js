@@ -6,6 +6,7 @@ import resultsView from './views/resultsView.js';
 import paginationView from './views/paginationView.js';
 import bookmarksView from './views/bookmarksView.js';
 import addRecipeView from './views/addRecipeView.js';
+import container from './views/container.js';
 
 import 'core-js/stable'; // polyfill for array methods, and ...
 import 'regenerator-runtime/runtime'; // polyfill for async await
@@ -19,7 +20,20 @@ const controlRecipes = async function () {
   try {
     const id = window.location.hash.slice(1);
 
-    if (!id) return;
+    // If the id does NOT exists......................
+    // Switching to searchResultsView while the back button is clicked
+    // under @media (max-width: $bp-small)
+    if (!id) {
+      container.removeRecipeView();
+      return;
+    }
+
+    // If the id exists......................
+    // Toggle mobileSearch
+    searchView.closeMobileSearch();
+
+    // Open recipeView and render spinner
+    container.openRecipeView();
     recipeView.renderSpinner();
 
     // 0) Update results view to mark the search result
@@ -45,6 +59,10 @@ const controlSuggestions = function (query) {
 
 const controlSearchResults = async function () {
   try {
+    // 0) Open searchResults once query is submitted
+    //    under @media (max-width: $bp-medium-small)
+    container.removeRecipeView();
+
     // 1) Get search query
     const query = searchView.getQuery();
     if (!query) return;

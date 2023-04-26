@@ -3,11 +3,12 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 100rem;
+  width: 90vw;
+  height: 67.5vh;
+  overflow: scroll;
   background-color: white;
   border-radius: 9px;
 
-  padding: 5rem 6rem;
   box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.25);
   z-index: 1000;
   transition: all 0.5s;
@@ -33,7 +34,7 @@
   height: 100%;
   background-color: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(4px);
-  z-index: 100;
+  z-index: 999;
   transition: all 0.5s;
 }
 
@@ -43,6 +44,7 @@
 }
 
 .upload {
+  padding: 5rem 6rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 4rem 6rem;
@@ -95,5 +97,14 @@
   &__btn {
     grid-column: 1 / -1;
     justify-self: center;
+  }
+}
+
+@media screen and (max-width: $bp-small) {
+  .upload {
+    padding: 3rem 4rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4rem;
   }
 }

@@ -71,7 +71,7 @@
 
     // This is how text is truncated!
     text-overflow: ellipsis;
-    max-width: 25rem;
+    max-width: 30rem;
     white-space: nowrap;
     overflow: hidden;
   }
@@ -100,6 +100,57 @@
       height: 1.2rem;
       width: 1.2rem;
       fill: $color-primary;
+    }
+  }
+}
+
+@media screen and (max-width: $bp-small) {
+  .search-results .preview {
+    &:first-child {
+      padding-top: 2rem;
+    }
+
+    &__link {
+      &:link,
+      &:visited {
+        border: none;
+        background-color: #fff;
+        box-shadow: 0 2px 4px $color-grey-light-3;
+        border-radius: 0.8rem;
+        width: 60%;
+        margin: 2rem auto;
+        overflow: hidden;
+      }
+
+      &:hover {
+        background-color: $color-grey-light-1;
+        transform: translateY(-2px);
+      }
+
+      &--active {
+        background-color: $color-grey-light-1;
+      }
+    }
+
+    &__fig {
+      flex: 0 0 8.8rem;
+      height: 8.8rem;
+      margin-right: 3rem;
+    }
+
+    &__title {
+      font-size: 2.2rem;
+    }
+  }
+}
+
+@media screen and (max-width: $bp-smallest) {
+  .search-results .preview {
+    &__link {
+      &:link,
+      &:visited {
+        width: 80%;
+      }
     }
   }
 }

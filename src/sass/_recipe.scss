@@ -177,3 +177,60 @@
     font-weight: 700;
   }
 }
+
+@media screen and (max-width: $bp-small) {
+  .recipe {
+    display: none;
+
+    &__fig {
+      height: 28rem;
+    }
+
+    &__details {
+      padding: 5.5rem 6rem 3.5rem;
+    }
+
+    &__info {
+      &:not(:last-child) {
+        margin-right: 3rem;
+      }
+    }
+
+    &__ingredients {
+      padding: 3.5rem 6rem;
+    }
+
+    &__directions {
+      padding: 3.5rem 8rem;
+    }
+  }
+
+  .open-recipe .recipe {
+    display: block;
+  }
+}
+
+@media screen and (max-width: $bp-smallest) {
+  .recipe {
+    &__title {
+      font-size: 2.7rem;
+    }
+
+    &__details {
+      padding: 5.5rem 4rem 3.5rem;
+    }
+
+    &__ingredients {
+      padding: 3.5rem 4rem;
+    }
+
+    &__ingredient-list {
+      grid-template-columns: 1fr;
+      gap: 1.2rem;
+    }
+
+    &__directions {
+      padding: 3.5rem 6rem;
+    }
+  }
+}

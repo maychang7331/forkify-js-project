@@ -88,6 +88,10 @@
   &:focus {
     outline: none;
   }
+
+  @media screen and (max-width: $bp-medium-small) {
+    background-color: #fff;
+  }
 }
 
 .btn--round {
