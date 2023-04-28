@@ -54,11 +54,11 @@
   }
 }
 
-@media screen and (max-width: $bp-small) {
+@media screen and (max-width: $bp-medium-small) {
   .search-results {
     padding: 0;
     position: absolute;
-    top: 7rem;
+    top: 8rem;
     left: 0;
     right: 0;
     width: 100%;
@@ -71,10 +71,15 @@
   }
 
   .results {
-    padding-top: 4rem;
-
+    margin: 6rem 0 2rem 0;
     .message {
       display: flex;
     }
+  }
+}
+
+@media screen and (max-width: $bp-smallest) {
+  .search-results {
+    top: 5rem;
   }
 }

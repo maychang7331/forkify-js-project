@@ -18,7 +18,7 @@
   margin-top: 2.4rem;
   align-self: flex-start;
   border-radius: 3rem;
-  background-color: rgba(255, 255, 255, 0.95);
+  background-color: rgba(255, 255, 255, 0.97);
 
   &:focus-within {
     transform: translateY(-2px);
@@ -180,36 +180,21 @@
   }
 }
 
-@media screen and (max-width: $bp-medium-small) {
+@media screen and (max-width: $bp-medium) {
   .search {
-    margin-top: 1.8rem;
+    &__box {
+      &--field {
+        width: auto;
 
-    // &__box {
-    //   &--field {
-    //     width: auto;
-
-    //     &::placeholder {
-    //       color: white;
-    //     }
-    //   }
-    // }
-  }
-}
-
-@media screen and (max-width: $bp-small) {
-  .nav {
-    svg {
-      height: 3rem;
-      width: 3rem;
-    }
-
-    span {
-      display: none;
+        &::placeholder {
+          color: white;
+        }
+      }
     }
   }
 }
 
-@media screen and (max-width: $bp-smallest) {
+@media screen and (max-width: $bp-medium-small) {
   .header {
     position: relative;
   }
@@ -217,8 +202,8 @@
   .search {
     display: none;
     position: absolute;
+    top: 8rem;
     margin: 0;
-    top: 7rem;
     border-radius: 0;
     width: 100%;
 
@@ -233,8 +218,9 @@
       background: none;
 
       &--field {
-        width: 63%;
-        margin-left: 9.6rem;
+        width: 80vw;
+        margin: 0 auto;
+        font-size: 2rem;
         border-bottom: 1px solid $color-grey-light-3;
 
         &::placeholder {
@@ -248,7 +234,12 @@
     }
 
     &--active &__suggestion--item {
-      padding-left: 9.6rem;
+      // width: 80vw;
+      padding: 0.7rem 0;
+      div {
+        width: 80vw;
+        margin: 0 auto;
+      }
     }
   }
 
@@ -265,6 +256,43 @@
 
     svg {
       margin: 0;
+      height: 3rem;
+      width: 3rem;
     }
+
+    span {
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-width: $bp-smallest) {
+  .header {
+    &__logo {
+      margin-left: 2rem;
+      height: 3.6rem;
+    }
+  }
+
+  .search {
+    top: 6rem;
+
+    &__box {
+      padding: 1.2rem 0 1rem;
+    }
+  }
+
+  .nav {
+    margin-right: 2rem;
+    svg {
+      margin: 0;
+      height: 2.4rem;
+      width: 2.4rem;
+    }
+  }
+
+  .bookmarks {
+    width: 32rem;
+    right: -0.5rem;
   }
 }

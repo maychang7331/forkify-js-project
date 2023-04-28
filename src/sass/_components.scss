@@ -121,6 +121,12 @@
     width: 2.5rem;
     fill: #fff;
   }
+
+  @media screen and (max-width: $bp-smallest) {
+    &:hover {
+      transform: translate(130%, -100%);
+    }
+  }
 }
 
 .btn--tiny {
@@ -213,5 +219,11 @@
     font-size: 1.8rem;
     line-height: 1.5;
     font-weight: 600;
+  }
+}
+
+@media screen and (max-width: $bp-medium-small) {
+  .heading--2 {
+    font-size: 2.25rem;
   }
 }

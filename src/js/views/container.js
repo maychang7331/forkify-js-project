@@ -8,7 +8,7 @@ class Container {
   removeRecipeView() {
     // Remove id, so that if back button is clicked, the hash is removed
     // for preventing rendoring previous id
-    if (window.matchMedia('(max-width: 43.5em)').matches) {
+    if (window.matchMedia('(max-width: 52.5em)').matches) {
       window.location.hash = '';
     }
 

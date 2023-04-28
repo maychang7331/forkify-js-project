@@ -50,7 +50,7 @@ class SearchView {
 
   _generateMarkupSuggestions(suggestions) {
     return suggestions
-      .map(sug => `<li class="search__suggestion--item">${sug}</li>`)
+      .map(sug => `<li class="search__suggestion--item"><div>${sug}</div></li>`)
       .join('');
   }
 

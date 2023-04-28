@@ -14,10 +14,10 @@ $gradient: linear-gradient(to right bottom, $color-grad-1, $color-grad-2);
 // /16px
 $bp-large: 75em; // (1200px)
 $bp-medium-large: 67.5em; // LAPTOPS (1080px)
-$bp-medium: 60em; // TABLETS (960px)
+$bp-medium: 59em; // TABLETS (944px)
 $bp-medium-small: 52.5em; // (840px)
 $bp-small: 43.5em; // SMALLER TABLETS (696px)
-$bp-smallest: 33.75em; // PHONES (540px)
+$bp-smallest: 34.5em; // PHONES (552px)
 
 * {
   margin: 0;
@@ -39,25 +39,10 @@ html {
     font-size: 56.25%;
   }
 
-  // TABLETS (960px)
+  // TABLETS (944px)
   @media screen and (max-width: $bp-medium) {
     font-size: 50%;
   }
-
-  // (840px)
-  @media screen and (max-width: $bp-medium-small) {
-    font-size: 43.75%;
-  }
-
-  // SMALLER TABLETS (696px)
-  @media screen and (max-width: $bp-medium-small) {
-    font-size: 37.5%;
-  }
-
-  // PHONES (540px)
-  // @media (max-width: $bp-smallest) {
-  //   font-size: 37.5%;
-  // }
 }
 
 body {
@@ -97,15 +82,16 @@ body {
     grid-template-rows: 9rem minmax(100vh, auto);
   }
 
-  // @media (max-width: $bp-medium-small) {
-  // }
-
-  @media screen and (max-width: $bp-small) {
+  @media (max-width: $bp-medium-small) {
+    grid-template-rows: 8rem minmax(100vh, auto);
     grid-template-columns: 1fr;
     background-color: $color-grey-light-1;
   }
 
+  @media screen and (max-width: $bp-small) {
+  }
+
   @media screen and (max-width: $bp-smallest) {
-    grid-template-rows: 7rem minmax(100vh, auto);
+    grid-template-rows: 6rem minmax(100vh, auto);
   }
 }
